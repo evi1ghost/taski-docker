@@ -61,7 +61,7 @@ jobs:
         with:
           context: ./backend/
           push: true
-          tags: ghcr.io/${{ secrets.DOCKER_USERNAME }}/taski_backend:latest
+          tags: ghcr.io/${{ github.actor }}/taski_backend:latest
   frontend_tests:
     runs-on: ubuntu-latest
 
@@ -101,7 +101,7 @@ jobs:
         with:
           context: ./frontend/
           push: true
-          tags: ghcr.io/${{ secrets.DOCKER_USERNAME }}/taski_frontend:latest
+          tags: ghcr.io/${{ github.actor }}/taski_frontend:latest
   build_gateway_and_push_to_docker_hub:
     name: Push gateway image to GitHub Container Registry
     runs-on: ubuntu-latest
@@ -121,7 +121,7 @@ jobs:
         with:
           context: ./gateway/
           push: true
-          tags: ghcr.io/${{ secrets.DOCKER_USERNAME }}/taski_gateway:latest
+          tags: ghcr.io/${{ github.actor }}/taski_gateway:latest
   deploy:
     runs-on: ubuntu-latest
     needs: 
